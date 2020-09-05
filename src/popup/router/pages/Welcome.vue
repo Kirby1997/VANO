@@ -4,7 +4,7 @@
       <div class="headerText container">
         <h1>Welcome</h1>
         <p>
-          VANO is a light-wallet that interacts with NANO,
+          BANO is a light-wallet that interacts with BANANO,
           a cryptocurrency with fast transactions and
           zero fees over a decentralised network.
         </p>

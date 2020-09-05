@@ -4,7 +4,7 @@
     <div class="sendField" v-if="sendPage">
       <div class="header container">
         <h1>Send</h1>
-        <p>You’ve clicked to pay with NANO</p>
+        <p>You’ve clicked to pay with BANANO</p>
       </div>
 
       <div class="overview">
@@ -210,7 +210,7 @@ export default {
     },
 
     toHash() {
-      let result = "https://nanocrawler.cc/explorer/block/" + this.hash;
+      let result = "https://creeper.banano.cc/explorer/block/" + this.hash;
       window.open(result, "_blank");
     }
   },

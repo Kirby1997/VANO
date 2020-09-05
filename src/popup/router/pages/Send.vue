@@ -11,7 +11,7 @@
         <div class="amount">
           <span>Amount:</span>
           <a class="max" @click="maxAmount()">MAX</a>
-          <input type="text" class="nanoAmount" v-model="amount" placeholder="0">
+          <input type="text" class="bananoAmount" v-model="amount" placeholder="0">
         </div>
       </div>
       <div class="toAddress">
@@ -23,7 +23,7 @@
           spellcheck="false"
           maxlength="65"
           type="text"
-          placeholder="xrb_ or nano_"
+          placeholder="ban_"
           v-model="to_address"
         ></textarea>
       </div>
@@ -120,7 +120,7 @@ export default {
       if (this.confirmScreen) {
         return "Confirm";
       }
-      return "Send NANO";
+      return "Send BANANO";
     }
   },
   watch: {

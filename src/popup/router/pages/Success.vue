@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     goToTab() {
-      let result = "https://nanocrawler.cc/explorer/block/" + this.hash;
+      let result = "https://creeper.banano.cc/explorer/block/" + this.hash;
       window.open(result, "_blank");
     },
 

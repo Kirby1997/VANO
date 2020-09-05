@@ -205,7 +205,7 @@ export function generateAccountKeyPair(accountSecretKeyBytes) {
 	return nacl.sign.keyPair.fromSecretKey(accountSecretKeyBytes)
 }
 
-export function getPublicAccountID(accountPublicKeyBytes, prefix = "xrb") {
+export function getPublicAccountID(accountPublicKeyBytes, prefix = "ban") {
 	const accountHex = uint8ToHex(accountPublicKeyBytes)
 	const keyBytes = uint4ToUint8(hexToUint4(accountHex)) // For some reason here we go from u, to hex, to 4, to 8??
 	const checksum = uint5ToString(
@@ -216,30 +216,26 @@ export function getPublicAccountID(accountPublicKeyBytes, prefix = "xrb") {
 	return `${prefix}_${account}${checksum}`
 }
 
-export function setPrefix(account, prefix = "xrb") {
-	if (prefix === "nano") {
-		return account.replace("xrb_", "nano_")
+export function setPrefix(account, prefix = "ban") {
+	if (prefix === "ban") {
+		return account.replace("ban_", "ban)")
 	} else {
-		return account.replace("nano_", "xrb_")
+		return account.replace("ban_", "ban_")
 	}
 }
 
 export function getAccountPublicKey(account) {
 	if (account.length == 64) {
-		if (!account.startsWith("xrb_1") && !account.startsWith("xrb_3")) {
-			throw new Error(`Invalid NANO Account`)
-		}
-	} else if (account.length == 65) {
-		if (!account.startsWith("nano_1") && !account.startsWith("nano_3")) {
-			throw new Error(`Invalid NANO Account`)
+		if (!account.startsWith("ban_1") && !account.startsWith("ban_3")) {
+			throw new Error(`Invalid BANANO Account`)
 		}
 	} else {
-		throw new Error(`Invalid NANO Account`)
+		throw new Error(`Invalid BANANO Account`)
 	}
 	const account_crop =
 		account.length == 64 ? account.substring(4, 64) : account.substring(5, 65)
 	const isValid = /^[13456789abcdefghijkmnopqrstuwxyz]+$/.test(account_crop)
-	if (!isValid) throw new Error(`Invalid NANO account`)
+	if (!isValid) throw new Error(`Invalid BANANO account`)
 
 	const key_uint4 = array_crop(
 		uint5ToUint4(stringToUint5(account_crop.substring(0, 52)))
@@ -257,32 +253,23 @@ export function getAccountPublicKey(account) {
 /**
  * Conversion functions
  */
-export const mnano = 1000000000000000000000000000000
-export const knano = 1000000000000000000000000000
-export const nano = 1000000000000000000000000
-export function mnanoToRaw(value) {
+export const banoshi = 1000000000000000000000000000
+export const banano = 100000000000000000000000000000
+export function banoshiToRaw(value) {
 	BigNumber.config({ EXPONENTIAL_AT: 100 })
-	return new BigNumber(value).times(mnano)
+	return new BigNumber(value).times(banoshi)
 }
-export function knanoToRaw(value) {
+export function bananoToRaw(value) {
 	BigNumber.config({ EXPONENTIAL_AT: 100 })
-	return new BigNumber(value).times(knano)
+	return new BigNumber(value).times(banano)
 }
-export function nanoToRaw(value) {
+export function rawToBanoshi(value) {
 	BigNumber.config({ EXPONENTIAL_AT: 100 })
-	return new BigNumber(value).times(nano)
+	return new BigNumber(value).div(banoshi)
 }
-export function rawToMnano(value) {
-	BigNumber.config({ EXPONENTIAL_AT: 100, DECIMAL_PLACES: 30 })
-	return new BigNumber(value).div(mnano)
-}
-export function rawToKnano(value) {
+export function rawToBanano(value) {
 	BigNumber.config({ EXPONENTIAL_AT: 100 })
-	return new BigNumber(value).div(knano)
-}
-export function rawToNano(value) {
-	BigNumber.config({ EXPONENTIAL_AT: 100 })
-	return new BigNumber(value).div(nano)
+	return new BigNumber(value).div(banano)
 }
 
 export function array_crop(array) {
@@ -321,26 +308,8 @@ export function lessThanGenesisAmount(rawAmount) {
 
 export function checksumAccount(account) {
 	try {
-		if (/^xrb_[13][13456789abcdefghijkmnopqrstuwxyz]{59}$/.test(account)) {
+		if (/^ban_[13][13456789abcdefghijkmnopqrstuwxyz]{59}$/.test(account)) {
 			var account_crop = account.substring(4, 64)
-			var key_uint4 = array_crop(
-				uint5ToUint4(stringToUint5(account_crop.substring(0, 52)))
-			)
-			var hash_uint4 = uint5ToUint4(
-				stringToUint5(account_crop.substring(52, 60))
-			)
-			var key_array = uint4ToUint8(key_uint4)
-			var blake_hash = blake.blake2b(key_array, null, 5).reverse()
-			if (equal_arrays(hash_uint4, uint8ToUint4(blake_hash))) {
-				var key = uint4ToHex(key_uint4)
-				return true
-			} else {
-				throw new Error("invalid_checksum")
-			}
-		}
-
-		if (/^nano_[13][13456789abcdefghijkmnopqrstuwxyz]{59}$/.test(account)) {
-			var account_crop = account.substring(5, 64)
 			var key_uint4 = array_crop(
 				uint5ToUint4(stringToUint5(account_crop.substring(0, 52)))
 			)

@@ -128,7 +128,7 @@ export default {
     },
 
     goToExplorer(id, hash) {
-      let result = "https://nanocrawler.cc/explorer/block/" + hash;
+      let result = "https://creeper.banano.cc/explorer/block/" + hash;
       window.open(result, "_blank");
     },
 

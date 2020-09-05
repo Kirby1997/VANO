@@ -6,8 +6,8 @@ import "./pow/nano-webgl-pow.js"
 import * as startThreads from "./pow/startThreads.js"
 import * as DOMPurify from "dompurify"
 
-const WS_URL = "wss://vano.app/sockets"
-const API_URL = "https://vano.app/node-api"
+const WS_URL = "wss://161.97.101.11"
+const API_URL = "https://kaliumapi.appditto.com/api"
 
 export class Wallet {
 	constructor() {
@@ -31,14 +31,14 @@ export class Wallet {
 		this.successfullBlocks = []
 		this.sendHash = ""
 		this.confirmSend = false
-		this.deeplinkData = {} // amount in raw, mNANO, address
+		this.deeplinkData = {} // amount in raw, BANANO, address
 	}
 
 	setDeepLinkData(amount, to) {
 		this.deeplinkData = {
 			raw: new BigNumber(amount),
 			to: to,
-			MNANO: util.rawToMnano(new BigNumber(amount)).toString()
+			BANANO: util.rawToBanano(new BigNumber(amount)).toString()
 		}
 	}
 
@@ -314,11 +314,11 @@ export class Wallet {
 				const notification_options = {
 					type: "basic",
 					iconUrl: "./icons/icon_128.png",
-					title: "Received NANO!",
+					title: "Received BANANO!",
 					message:
 						"New pending deposit of " +
-						util.rawToMnano(data.amount).toString() +
-						" NANO",
+						util.rawToBanano(data.amount).toString() +
+						" BANANO",
 					priority: 2,
 					silent: false
 				}
@@ -464,7 +464,7 @@ export class Wallet {
 		await util.setLocalStorageItem("work", this.workPool)
 	}
 
-	// INTERACTING WITH THE NANO NETWORK:
+	// INTERACTING WITH THE BANANO NETWORK:
 	// SIGNING BLOCKS, SEND, RECEIVE, CHANGE ETC.
 	// ==================================================================
 	resetConfirm() {
@@ -693,7 +693,7 @@ export class Wallet {
 	}
 
 	newSendBlock(blockinfo, hasWork) {
-		let amount = util.mnanoToRaw(new BigNumber(blockinfo.data.amount))
+		let amount = util.bananoToRaw(new BigNumber(blockinfo.data.amount))
 		let to = blockinfo.data.to
 		let newBalance = new BigNumber(this.balance).minus(new BigNumber(amount))
 		let newBalancePadded = this.getPaddedBalance(newBalance)
@@ -869,7 +869,7 @@ export class Wallet {
 		this.successfullBlocks = []
 		this.sendHash = ""
 		this.confirmSend = false
-		this.deeplinkData = {} // amount in raw, mNANO, address
+		this.deeplinkData = {} // amount in raw, BANANO, address
 		this.keepAliveSet = false
 		this.successfullBlocks = []
 		this.pendingBlocks = []
@@ -920,17 +920,17 @@ export class Wallet {
 	}
 
 	checkSend(data) {
-		let amount = new BigNumber(util.mnanoToRaw(data.amount))
+		let amount = new BigNumber(util.bananoToRaw(data.amount))
 		let to = data.to
 		let errorMessage = false
-		if (amount.e < 0) errorMessage = "Your nano-unit is too small to send"
+		if (amount.e < 0) errorMessage = "Your banano-unit is too small to send"
 		if (amount.isNaN()) errorMessage = "Amount is not a valid number"
 		if (amount.isLessThanOrEqualTo(0))
-			errorMessage = "You can't send zero or negative NANO"
+			errorMessage = "You can't send zero or negative BANANO"
 		if (/^\d+\.\d+$/.test(amount.toString()))
 			errorMessage = "Cannot send smaller than raw"
 		if (amount.isGreaterThan(this.balance))
-			errorMessage = "Not enough NANO in this wallet"
+			errorMessage = "Not enough BANANO in this wallet"
 		if (!util.checksumAccount(to)) errorMessage = "Invalid address"
 		if (to === this.publicAccount) errorMessage = "Can't send to yourself"
 		if (this.isViewProcessing)
@@ -969,7 +969,7 @@ export class Wallet {
 			this.pendingBlocks.forEach(element => {
 				let block = {
 					type: "pending",
-					amount: util.rawToMnano(element.amount).toString(),
+					amount: util.rawToBanano(element.amount).toString(),
 					account: element.account,
 					hash: element.hash
 				}
@@ -979,14 +979,14 @@ export class Wallet {
 			this.history.forEach(element => {
 				let block = {
 					type: element.type,
-					amount: util.rawToMnano(element.amount).toString(),
+					amount: util.rawToBanano(element.amount).toString(),
 					account: element.account,
 					hash: element.hash
 				}
 				result.push(block)
 			})
 
-			let full_balance = util.rawToMnano(this.balance).toString()
+			let full_balance = util.rawToBanano(this.balance).toString()
 			let prep_balance = full_balance.toString().slice(0, 8)
 			if (prep_balance === "0") {
 				prep_balance = "00.00"

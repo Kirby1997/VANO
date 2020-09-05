@@ -4,7 +4,7 @@
       <div class="headerText container">
         <h1>Wallet created</h1>
         <p>
-          The seed below is the master key to your NANO wallet.
+          The seed below is the master key to your BANANO wallet.
           <span
             class="bold"
           >Make sure to write it down and save it somewhere safe!</span>

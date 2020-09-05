@@ -1,6 +1,6 @@
 {
-	"name": "vano",
-	"description": "VANO: a NANO light-wallet browser extension",
+	"name": "bano",
+	"description": "BANO: a BANANO light-wallet browser extension",
 	"version": "1.0.6",
 	"manifest_version": 2,
 	"icons": {

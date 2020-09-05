@@ -7,10 +7,10 @@ for (var i = 0; i < links.length; i++) {
 	try {
 		let href = DOMPurify.sanitize(links[i].href.trim())
 		let r = new RegExp(
-			"^(xrb|nano)\\:(xrb_|nano_)[a-zA-Z0-9]{60}\\?(amount)\\=[0-9]+$",
+			"^(ban)\\:(ban_)[a-zA-Z0-9]{60}\\?(amount)\\=[0-9]+$",
 			"g"
 		)
-		let r_address = new RegExp("(xrb_|nano_)[a-zA-Z0-9]{60}", "g")
+		let r_address = new RegExp("(ban_)[a-zA-Z0-9]{60}", "g")
 		let r_amount = new RegExp("\\=([0-9]+)", "g")
 
 		if (r.test(href)) {

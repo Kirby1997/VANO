@@ -69,7 +69,7 @@ function startExtension() {
 					if (contentData.action === "setFields") {
 						wallet.openDeepView = true
 						let setFieldData = {
-							amount: wallet.deeplinkData.MNANO,
+							amount: wallet.deeplinkData.BANANO,
 							to: wallet.deeplinkData.to
 						}
 						port.postMessage({
