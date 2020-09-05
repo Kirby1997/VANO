@@ -166,7 +166,7 @@ button {
   height: 40px;
   cursor: pointer;
   &:hover {
-    background-color: #466eff;
+    background-color: #FBDD11;
   }
 }
 

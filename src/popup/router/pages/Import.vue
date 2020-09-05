@@ -138,10 +138,10 @@ button {
   font-weight: 600;
   line-height: 18px;
   font-size: 14px;
-  background-color: #2f55df;
+  background-color: #FBDD11;
   width: 230px;
   height: 40px;
-  background: #2f55df;
+  background: #FBDD11;
   border-radius: 2px;
   margin: 10px auto 0 auto;
   display: block;
@@ -149,7 +149,7 @@ button {
   cursor: pointer;
 
   &:hover {
-    background-color: #466eff;
+    background-color: #FBDD11;
   }
 }
 

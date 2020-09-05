@@ -236,7 +236,7 @@ h1 {
   position: relative;
   width: 100%;
   height: 50px;
-  background-color: #1f3ead;
+  background-color: #FBDD11;
   display: flex;
   align-items: center;
   font-family: "RubikMedium", sans-serif;
@@ -383,7 +383,7 @@ button {
 .bigger {
   height: 65px !important;
   opacity: 1;
-  background-color: #2f55df !important;
+  background-color: #FBDD11 !important;
   color: #fff !important;
 
   .link-items .info {

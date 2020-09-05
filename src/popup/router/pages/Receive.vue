@@ -117,10 +117,10 @@ button {
   line-height: 21px;
   color: #ffffff;
   cursor: pointer;
-  background-color: #2f55df;
+  background-color: #FBDD11;
 
   &:hover {
-    background-color: #466eff;
+    background-color: #FBDD11;
   }
 }
 

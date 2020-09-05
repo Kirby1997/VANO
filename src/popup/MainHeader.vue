@@ -217,7 +217,7 @@ export default {
   padding: 5px 7px;
   border-radius: 100%;
   &:hover {
-    background-color: #466eff;
+    background-color: #FBDD11;
   }
 }
 
@@ -317,7 +317,7 @@ export default {
     svg {
       padding: 5px;
       border-radius: 100%;
-      background-color: #466eff;
+      background-color: #FBDD11;
     }
   }
 }

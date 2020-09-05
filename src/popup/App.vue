@@ -57,7 +57,7 @@ export default {
   src: url("../fonts/Rubik-Black.ttf") format("truetype");
 }
 
-$primary_color: #2f55df;
+$primary_color: #4CBF4B;
 $font_color: #222426;
 
 html,
@@ -152,7 +152,7 @@ input {
 button {
   transition: all 0.6s ease;
   &:hover {
-    background-color: #162b79;
+    background-color: #FBDD11;
   }
 }
 
@@ -162,13 +162,13 @@ button {
   color: #fff;
   font-style: normal;
   font-size: 14px;
-  background-color: #2f55df;
+  background-color: #FBDD11;
   width: 100%;
   height: 40px;
   cursor: pointer;
   transition: background-color 0.6s ease;
   &:hover {
-    background-color: #162b79;
+    background-color: #FBDD11;
   }
 }
 

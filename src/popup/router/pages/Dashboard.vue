@@ -192,16 +192,16 @@ h1 {
   flex-grow: 1;
 
   button:first-child {
-    background-color: #2f55df;
+    background-color: #FBDD11;
     &:hover {
-      background-color: #1c3693;
+      background-color: #FBDD11;
     }
   }
 
   button:last-child {
-    background-color: #1e3fba;
+    background-color: #FBDD11;
     &:hover {
-      background-color: #1c3693;
+      background-color: #FBDD11;
     }
   }
 

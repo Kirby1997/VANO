@@ -120,7 +120,7 @@ button {
   font-family: "RubikMedium";
   width: 230px;
   border: none;
-  background: #2f55df;
+  background: #FBDD11;
   font-size: 12px;
   line-height: 18px;
   text-align: center;
@@ -130,7 +130,7 @@ button {
   cursor: pointer;
   margin-top: 10px;
   &:hover {
-    background-color: #466eff;
+    background-color: #FBDD11;
   }
 }
 </style>

@@ -260,14 +260,14 @@ button {
   line-height: 21px;
   color: #ffffff;
   cursor: pointer;
-  background-color: #2f55df;
+  background-color: #FBDD11;
   &:hover:enabled {
-    background-color: #466eff;
+    background-color: #FBDD11;
   }
 
   &:disabled {
     cursor: default !important;
-    background-color: #5d7ffa;
+    background-color: #FBDD11;
   }
   z-index: 1;
 }
@@ -338,7 +338,7 @@ textarea:focus::-webkit-input-placeholder {
 }
 
 .confirmScreen {
-  background-color: #1f378d;
+  background-color: #FBDD11;
   position: absolute;
   left: 0;
   right: 0;

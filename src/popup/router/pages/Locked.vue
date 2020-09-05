@@ -144,7 +144,7 @@ input {
 }
 
 button {
-  background: #2f55df;
+  background: #FBDD11;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -158,7 +158,7 @@ button {
   cursor: pointer;
 
   &:hover {
-    background-color: #466eff;
+    background-color: #FBDD11;
   }
 }
 </style>

@@ -6,8 +6,8 @@ import "./pow/nano-webgl-pow.js"
 import * as startThreads from "./pow/startThreads.js"
 import * as DOMPurify from "dompurify"
 
-const WS_URL = "wss://161.97.101.11"
-const API_URL = "https://kaliumapi.appditto.com/api"
+const WS_URL = "wss://ws.banano.cc/"
+const API_URL = "https://vault.banano.cc/api/node-api"
 
 export class Wallet {
 	constructor() {

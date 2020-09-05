@@ -253,7 +253,7 @@ export default {
   src: url("../fonts/Rubik-Black.ttf") format("truetype");
 }
 
-$primary_color: #2f55df;
+$primary_color: #FBDD11;
 $font_color: #222426;
 
 html,
