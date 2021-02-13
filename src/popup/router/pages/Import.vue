@@ -7,7 +7,7 @@
           Your BANANO seed is stored locally and protected by a password.
           <span
             class="bold"
-          >VANO cannot restore your seed or password.</span>
+          >BANO cannot restore your seed or password.</span>
         </p>
       </div>
     </div>

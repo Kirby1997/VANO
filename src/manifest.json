@@ -8,7 +8,7 @@
 		"128": "icons/icon_128.png"
 	},
 	"browser_action": {
-		"default_title": "vano",
+		"default_title": "bano",
 		"default_popup": "popup/popup.html"
 	},
 	"content_scripts": [

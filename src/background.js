@@ -47,7 +47,7 @@ function startExtension() {
 						}
 
 						if (wallet.locked) {
-							window.alert("Please unlock (or create) your VANO wallet")
+							window.alert("Please unlock (or create) your BANO wallet")
 						}
 					}
 				} catch (e) {
